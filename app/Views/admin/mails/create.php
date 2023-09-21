@@ -1,0 +1,33 @@
+<?= $this->extend('admin/layout') ?>
+<?= $this->section('content') ?>
+
+<div class="container mt-5">
+    <form method="post" id="add_category" name="add_category" action="<?= site_url('/admin/store/mail') ?>">
+        <div class="form-group mb-3">
+            <label for="name">Name</label>
+            <input type="text" name="name" id="name" class="form-control">
+            <?php if(isset($validationErrors['name'])): ?>
+            <div class="text-danger"><?= $validationErrors['name'] ?></div>
+            <?php endif; ?>
+        </div>
+        <div class="form-group mb-3">
+            <label for="email">Email</label>
+            <input type="email" name="email" id="email" class="form-control">
+            <?php if(isset($validationErrors['email'])): ?>
+            <div class="text-danger"><?= $validationErrors['email'] ?></div>
+            <?php endif; ?>
+        </div>
+        <div class="form-group mb-3">
+            <label for="message">Message</label>
+            <textarea name="message" id="message" cols="30" rows="10" class="form-control"></textarea>
+            <?php if(isset($validationErrors['message'])): ?>
+            <div class="text-danger"><?= $validationErrors['message'] ?></div>
+            <?php endif; ?>
+        </div>
+        <div class="form-group">
+            <button type="submit" class="btn btn-primary btn-block">Create</button>
+        </div>
+    </form>
+</div>
+
+<?= $this->endsection() ?>
